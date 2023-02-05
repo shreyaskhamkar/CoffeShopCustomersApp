@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using WiredBrainCoffee.CustomersApp.Command;
@@ -50,7 +49,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         public DelegateCommand AddCommand { get; }
         public DelegateCommand MoveNavigationCommand { get; }
         public DelegateCommand DeleteCommand { get; }
-        public async Task LoadAsync()
+        public async override Task LoadAsync()
         {
             if (Customers.Any())
             {

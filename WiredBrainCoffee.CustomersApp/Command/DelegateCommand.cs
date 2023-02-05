@@ -5,6 +5,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WiredBrainCoffee.CustomersApp.ViewModel;
 
 namespace WiredBrainCoffee.CustomersApp.Command
 {
@@ -13,6 +14,8 @@ namespace WiredBrainCoffee.CustomersApp.Command
         private Action<object?> _execute;
         private Func<object?, bool>? _canExecute;
         private DelegateCommand? deleteCommand;
+
+        public ViewModelBase? SelecteViewModel { get; }
 
         public DelegateCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
 
@@ -25,6 +28,11 @@ namespace WiredBrainCoffee.CustomersApp.Command
         public DelegateCommand(DelegateCommand? deleteCommand)
         {
             this.deleteCommand = deleteCommand;
+        }
+
+        public DelegateCommand(ViewModelBase? selecteViewModel)
+        {
+            SelecteViewModel = selecteViewModel;
         }
 
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
