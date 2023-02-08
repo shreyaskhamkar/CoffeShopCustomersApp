@@ -12,7 +12,7 @@
       x:Key="NavigationSideToGridColumnConv"/>
         <DataTemplate x:Key="CustomerDataTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding FirstName , ValidatesOnNotifyDataErrors=False}" FontWeight="Bold"/>
                 <TextBlock Text="{Binding LastName}" Margin="5 0 0 0"/>
             </StackPanel>
         </DataTemplate>
@@ -56,7 +56,7 @@
         <!-- Customer detail -->
         <StackPanel Grid.Column="1" Margin="10"
                 Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConv}}">
-          
+
             <Label>Firstname:</Label>
             <TextBox Text="{Binding SelectedCustomer.FirstName,
         Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -65,7 +65,7 @@
         Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
             <CheckBox IsChecked="{Binding SelectedCustomer.IsDeveloper,
         Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-        Margin="0 10 0 0">
+        Margin="0 20 0 0">
                 Is developer
             </CheckBox>
         </StackPanel>
